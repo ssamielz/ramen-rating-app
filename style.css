@@ -1,0 +1,68 @@
+*{
+    margin: 1px;
+}
+body{
+    background-color: lightgrey;
+    background-repeat:no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+
+
+#ramen-menu-images img{
+width:100px;
+height:100px;
+padding:1.5px;
+object-fit: cover;
+border-radius:10px;
+}
+
+
+.new-ramen{
+    text-align: center;
+    color: white;
+    background-color: black;
+}
+
+.myHeader{
+    color: white;
+    background-color: black;
+
+}
+
+#ramen-detail{
+    height: 350px;
+    width: 350px;
+   
+}
+
+#ramen-form{
+    
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+}
+
+input{
+    width: 390px ;    
+    margin-bottom: 2px;
+}
+
+label{
+    position: absolute;
+    left: 0px;
+}
+
+textarea{
+    width: 390px ;    
+    margin-bottom: 2px;
+}
+
+button{
+    width: 290px ;
+    height: 30px;
+    margin-bottom: 2px;
+    color: white;
+    background-color: black;
+}

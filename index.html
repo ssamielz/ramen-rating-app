@@ -1,11 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <title>Ramen Rater</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script src="index.js" ></script>
+  <h1 class="myHeader">Ramen Rater</h1>
+
+  <div id="ramen-menu-images">
+    <img src="./gyukotsu.jpg" alt="" class="myImportedImages">
+    <img src="./kojiro.jpg" alt="" class="myImportedImages">
+    <img src="./naruto.jpg" alt="" class="myImportedImages">
+    <img src="./nirvana.jpg" alt="" class="myImportedImages">
+    <img src="./shoyu.jpg" alt="" class="myImportedImages">
+  </div>
+  
+  <div >
+    <img src="./gyukotsu.jpg" alt="" id="ramen-detail">
+    <p></p>
+    <p></p>
+  </div>
+       
+  
+  <div id="ramen-form">
+    <form >
+      <h3  class="myHeader">Add New Ramen</h3>
+
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" required class="formDetails"><br>
+
+      <label for="restaurant">Restaurant:</label><br>
+      <input type="text" id="restaurant" required><br>
+
+      <label for="image">Image URL:</label><br>
+      <input type="text" id="image" required><br>
+
+      <label for="rating">Rating:</label><br>
+      <input type="number" id="rating"><br>
+
+      <label for="comment">Comment:</label><br>
+      <textarea id="comment"></textarea><br>
+
+      <button type="submit">Create</button>
+  </form>
+</div>
+  <script src="index.js"></script>
 </body>
 </html>
