@@ -7,18 +7,16 @@
 <body>
   <h1 class="myHeader">Ramen Rater</h1>
 
-  <div id="ramen-menu-images">
-    <img src="./gyukotsu.jpg" alt="" class="myImportedImages">
-    <img src="./kojiro.jpg" alt="" class="myImportedImages">
-    <img src="./naruto.jpg" alt="" class="myImportedImages">
-    <img src="./nirvana.jpg" alt="" class="myImportedImages">
-    <img src="./shoyu.jpg" alt="" class="myImportedImages">
+  <div id="ramen-menu">
+  
   </div>
   
   <div >
     <img src="./gyukotsu.jpg" alt="" id="ramen-detail">
-    <p></p>
-    <p></p>
+    <h3>Rating</h3>
+    <p id="myRating">4</p>
+    <h3>Comment</h3>
+    <p id="myComment">Fabulous</p>
   </div>
        
   
@@ -35,13 +33,13 @@
       <label for="image">Image URL:</label><br>
       <input type="text" id="image" required><br>
 
-      <label for="rating">Rating:</label><br>
+      <label for="rating">Rating:</label><br> 
       <input type="number" id="rating"><br>
 
       <label for="comment">Comment:</label><br>
       <textarea id="comment"></textarea><br>
 
-      <button type="submit">Create</button>
+      <button type="submit" id="myButton">Create</button>
   </form>
 </div>
   <script src="index.js"></script>
