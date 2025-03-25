@@ -43,24 +43,19 @@ document.addEventListener("DOMContentLoaded", function(){
         rating: 5,
         comment: "Thick noodles, amazing dipping sauce!",
       },
-      {
-        id: 6,
-        name: "",
-        restaurant: "",
-        image: "",
-        rating: '',
-        comment:""
-      }
+     
     ];
-
-const newImagesInside = document.getElementById('ramen-menu');
-const imageToBeChanged = document.getElementById('ramen-detail');
-const myRating = document.getElementById('myRating');
-const myComment = document.getElementById('myComment');
+   ramensArray=[...ramens];
+let newImagesInside = document.getElementById('ramen-menu');
+let imageToBeChanged = document.getElementById('ramen-detail');
+let myRating = document.getElementById('myRating');
+let myComment = document.getElementById('myComment');
 
   function displayRamens(){
-    for(let element of ramens){
-      const myImages = document.createElement('img');
+    let mymenu = document.getElementById("ramen-menu");
+    mymenu.innerHTML=""
+    for(let element of ramensArray){
+     const myImages = document.createElement('img');
       myImages.src = element.image;
       myImages.alt = element.name;
       myImages.classList.add('my-images-loaded');
@@ -77,37 +72,51 @@ const myComment = document.getElementById('myComment');
         imageToBeChanged.alt = event.target.alt;
         
         const matchingSource = ramens.find((element) => element.image === event.target.src.slice(22))
-       myRating.innerText = matchingSource.rating;
+       myRating.innerHTML = matchingSource.rating;
        myComment.innerText = matchingSource.comment;
       
     }
   }
 
   const button = document.getElementById('myButton');
-  const myName = document.getElementById('name');
-  const myRestaurant = document.getElementById('restaurant');
-  const myUrl = document.getElementById('image');
-  const myRatings = document.getElementById('rating');
-  const myComments = document.getElementById('comment');
+ 
 
 
-  function addSubmitListener(){
-    button.addEventListener('click', function(e){
-      e.preventDefault();
-      myName.push(ramens)
-      myRestaurant.push(ramens)
-      myUrl.push(ramens)
-      myRatings.push(ramens)
-      myComments.push(ramens)
+
+      let newramen
+      let ramenform=document.getElementById("ramen-form")
+      ramenform.addEventListener("submit",()=>{
+        event.preventDefault();
+
+        let myName = document.getElementById('name').value;
+        let myRestaurant = document.getElementById('restaurant').value;
+        let myUrl = document.getElementById('image').value;
+        let myRatings = document.getElementById('rating').value;
+        let myComments = document.getElementById('comment').value;
+
+newramen={
+  id:(ramensArray.length + 1),
+  name:myName,
+  restaurant:myRestaurant,
+  image:myUrl,
+  rating:myRatings,
+  comment:myComments
+}
+// console.log(newramen);
+
+ramensArray.push(newramen)
+console.log(ramensArray);
+displayRamens();
+
+      })
       
-    });
-  }
 
 
-  (function main(){
+
+  function main(){
     displayRamens();
-    addSubmitListener();
-  })();
-  
+    //addSubmitListener();
+  }
+  main();
 })
 
