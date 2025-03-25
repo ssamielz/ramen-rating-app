@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function(){
       },
      
     ];
-ramensArray=[...ramens];
+
 let newImagesInside = document.getElementById('ramen-menu');
 let imageToBeChanged = document.getElementById('ramen-detail');
 let myRating = document.getElementById('myRating');
@@ -54,7 +54,7 @@ let myComment = document.getElementById('myComment');
   function displayRamens(){
     let mymenu = document.getElementById("ramen-menu");
     mymenu.innerHTML=""
-    for(let element of ramensArray){
+    for(let element of ramens){
      const myImages = document.createElement('img');
       myImages.src = element.image;
       myImages.alt = element.name;
@@ -69,16 +69,17 @@ let myComment = document.getElementById('myComment');
 
   newImagesInside.addEventListener('click', handleClick)
   function handleClick(event){
-    
+    let myRating = document.getElementById('myRating');
+    let myComment = document.getElementById('myComment');
     if(event.target.classList.contains('my-images-loaded')){
         imageToBeChanged.src = event.target.src;
         imageToBeChanged.alt = event.target.alt;
         
-        const matchingSource = ramens.find((element) => element.image === event.target.src.slice(23))
-        //console.log(matchingSource);
+        const matchingSource = ramens.find((element) => element.name === event.target.alt)
+        console.log(matchingSource.image);
         
-       myRating.innerHTML = matchingSource.rating;
-       myComment.innerText = matchingSource.comment;
+       myRating.textContent = matchingSource.rating;
+       myComment.textContent = matchingSource.comment;
       
     }
   }
@@ -88,7 +89,7 @@ let myComment = document.getElementById('myComment');
 
 
 
-      let newramen
+      let newramen;
       let ramenform=document.getElementById("ramen-form")
       ramenform.addEventListener("submit",()=>{
         event.preventDefault();
@@ -96,24 +97,27 @@ let myComment = document.getElementById('myComment');
         let myName = document.getElementById('name').value;
         let myRestaurant = document.getElementById('restaurant').value;
         let myUrl = document.getElementById('image').value;
-        let myRatings = document.getElementById('rating').value;
-        let myComments = document.getElementById('comment').value;
+        let newRating = document.getElementById('rating').value;
+        let newComment = document.getElementById('comment').value;
 
-newramen={
-  id:(ramensArray.length + 1),
-  name:myName,
-  restaurant:myRestaurant,
-  image:myUrl,
-  rating:myRatings,
-  comment:myComments
-}
-// console.log(newramen);
+        const newImage = document
+        newramen={
+          id:(ramens.length + 1),
+          name:myName,
+          restaurant:myRestaurant,
+          image:myUrl,
+          rating: parseInt(newRating, 10),
+          comment:newComment
+        }
+       
+        
 
-ramensArray.push(newramen)
-console.log(ramensArray);
-displayRamens();
+      ramens.push(newramen)
+      console.log(ramens);
+      displayRamens();
 
-      })
+
+            })
       
 
 
