@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function(){
       },
      
     ];
-   ramensArray=[...ramens];
+ramensArray=[...ramens];
 let newImagesInside = document.getElementById('ramen-menu');
 let imageToBeChanged = document.getElementById('ramen-detail');
 let myRating = document.getElementById('myRating');
@@ -60,6 +60,8 @@ let myComment = document.getElementById('myComment');
       myImages.alt = element.name;
       myImages.classList.add('my-images-loaded');
 
+     
+
       newImagesInside.appendChild(myImages);
       
     }
@@ -67,11 +69,14 @@ let myComment = document.getElementById('myComment');
 
   newImagesInside.addEventListener('click', handleClick)
   function handleClick(event){
+    
     if(event.target.classList.contains('my-images-loaded')){
         imageToBeChanged.src = event.target.src;
         imageToBeChanged.alt = event.target.alt;
         
-        const matchingSource = ramens.find((element) => element.image === event.target.src.slice(22))
+        const matchingSource = ramens.find((element) => element.image === event.target.src.slice(23))
+        //console.log(matchingSource);
+        
        myRating.innerHTML = matchingSource.rating;
        myComment.innerText = matchingSource.comment;
       
